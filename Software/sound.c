@@ -120,8 +120,8 @@ void sound_task( void )
     if (tick_timer2 != 0)
         tick_timer2--;
 
-	run_sound_ch1();
-	run_sound_ch2();
+    run_sound_ch1();
+    run_sound_ch2();
     
     sound_cmd = SND_NONE;
 }
