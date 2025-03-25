@@ -490,21 +490,21 @@ void serial_isr(void) __interrupt(UART1_VECTOR) __using (1)
         }
     }
 
-	// --- UART send
+    // --- UART send
     if (TI)
     {
         TI = 0;
         
         // Anything to send?
-		if (outbuf_bot != outbuf_top || outbuf_full)
-		{
-			SBUF = *outbuf_bot;          // Transmit the character
-			CYCLIC_INC(outbuf_bot);
-			outbuf_full = FALSE;
-		}
-		else
-			tx_on = FALSE;
-	}
+        if (outbuf_bot != outbuf_top || outbuf_full)
+        {
+            SBUF = *outbuf_bot;          // Transmit the character
+            CYCLIC_INC(outbuf_bot);
+            outbuf_full = FALSE;
+        }
+        else
+            tx_on = FALSE;
+    }
 }
 
 /* =======================================================================
